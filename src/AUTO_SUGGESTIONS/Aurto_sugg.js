@@ -3,32 +3,38 @@ import React, { useState, useEffect } from "react";
 function App() {
   const items = ["Apple", "Banana", "Cherry", "Date", "Grape", "Lemon"];
 
-  const [data, setdata] = useState("");
+  const [data, setdata] = useState(items);
+  const [inp, setinp] = useState("");
   const [err, seterr] = useState(false);
 
-  let filtereditems = items.filter((x, y) =>
-    x.toLowerCase().includes(data.toLowerCase())
+  let filtered_data = data.filter((x) =>
+    x.toLowerCase().includes(inp.toLowerCase())
   );
 
   useEffect(() => {
-    if (filtereditems.length === 0) {
+    if (filtered_data.length === 0) {
       seterr(true);
     } else {
       seterr(false);
     }
-  }, [filtereditems]);
+  }, [filtered_data]);
+
   return (
     <div>
+      <h1>auto suggention</h1>
       <input
-        placeholder={"type something"}
-        onChange={(e) => setdata(e.target.value)}
+        type={"text"}
+        value={inp}
+        onChange={(e) => setinp(e.target.value)}
       />
-      {filtereditems.map((x, y) => (
-        <li> {x}</li>
-      ))}
-      {err && <p>not found {err}</p>}
+      {
+        // data.filter((x) => x.toLowerCase().includes(inp.toLowerCase()))
+        filtered_data.map((x) => (
+          <li key={x}>{x}</li>
+        ))
+      }
+      {err && <p>items not found</p>}
     </div>
   );
 }
-
 export default App;
