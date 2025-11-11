@@ -1,18 +1,15 @@
-import React from 'react';
+import React from "react";
 
- function Child(props) {
+function Child({ handle }) {
+  let name = "skmahaboob jani";
 
-
-
-    let name="mabujani"
   return (
     <div>
-
-
-
-        <button onClick={()=>props.handel(name)}>{props.visible?"hide":"show"}</button>
-      
+      <h1>iam child</h1>
+      <button onClick={() => handle(name)}>
+        send data from child to parent
+      </button>
     </div>
   );
 }
-export default Child
+export default Child;
