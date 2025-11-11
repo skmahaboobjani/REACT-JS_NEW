@@ -1,32 +1,18 @@
-import React, { useState } from 'react';
-import Child from './Child';
+import React, { useState } from "react";
+import Child from "./Child";
+function Parent() {
+  const [data, setdata] = useState();
 
- function Parent() {
-
-    const [name,setname]=useState('')
-    const [visible,setvisible]=useState(false)
-
-
-    let handel=(cb)=>
-    {
-        setvisible(!visible)
-
-        if(!visible)
-        {
-            setname(cb)
-        }
-        else
-        {
-            setname("")
-        }
-        
-   
-    }
+  let handle = (name) => {
+    setdata(name);
+    alert("recived data from child to parent");
+  };
   return (
     <div>
-      <Child handel={handel} visible={visible}/>
-      {name}
+      <h1>iam parent</h1>
+      <Child handle={handle} />
+      {data}
     </div>
   );
 }
-export default Parent
+export default Parent;
