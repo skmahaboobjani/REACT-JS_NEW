@@ -44,6 +44,13 @@
 //             </>
             
 //          ))}
+//         </div>
+//     )
+
+// }
+// export default Forms
+
+
 
 
 
@@ -56,7 +63,7 @@
 
 import React, { useState } from "react";
 function App() {
-  const [data, setdata] = useState({ name: [], email: [], number: [] });
+  const [data, setdata] = useState({ name: "", email: "", number: "" });
   const [err, seterr] = useState("");
 
   let handlechange = (e) => {
@@ -103,15 +110,28 @@ function App() {
       <br />
       <button onClick={submit}>submit</button>
       <br />
-      {err}
+      <p style={{ color: "red" }}>{err}</p>
+      {/* {err} */}
     </div>
   );
 }
 export default App;
 
 
-//         </div>
-//     )
 
-// }
-// export default Forms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
