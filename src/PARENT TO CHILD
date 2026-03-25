@@ -1,0 +1,44 @@
+PARENT TO CHILD
+PARENT
+import React, { useState } from "react";
+import Child from "./Child";
+function App() {
+  const [data, setdata] = useState();
+  let handel = (hello) => {
+    setdata(hello);
+  };
+  return (
+    <div>
+      <h1>React js</h1>
+
+      <h1>iam parent</h1>
+      {data}
+      <Child handel={handel} />
+    </div>
+  );
+}
+export default App;
+
+
+CHILD
+import React from "react";
+
+// function Child(props)
+function Child({ handel }) {
+  let name = "mabu jani";
+
+  return (
+    <div>
+      <h1>iam child</h1>
+      {/* <button onClick={() => props.handel(name)}>
+        send data from child to parent
+      </button> */}
+      <button onClick={() => handel(name)}>
+        send data from child to parent
+      </button>
+    </div>
+  );
+}
+export default Child;
+
+
